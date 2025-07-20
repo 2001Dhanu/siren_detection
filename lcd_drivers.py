@@ -1,11 +1,8 @@
-from hd44780.hd44780 import I2CDisplay
+from RPLCD.i2c import CharLCD
 from machine import I2C
 import time
 
-# Initialize I2C (assuming I2C bus 0 and address 0x27, adjust as needed)
-i2c = I2C(0, scl=21, sda=20, freq=400000)  # Example for an ESP32, adjust pins and freq
-lcd = I2CDisplay(i2c, cols=16, rows=2, i2c_addr=0x27)  # Adjust i2c_addr if needed
-
+lcd = CharLCD(i2c_expander='PCF8574', address=0x27, port=1, cols=16, rows=2)
 # Clear the display
 lcd.clear()
 
