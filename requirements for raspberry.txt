@@ -1,20 +1,17 @@
-# Core for running TFLite model
-tflite-runtime==2.5.0
-
-# For audio signal processing (if using real-time audio input)
-numpy==1.22.0
-scipy==1.7.3
-librosa==0.10.0.post2
-
-# For loading and preprocessing audio or data
-soundfile==0.12.1
-matplotlib==3.5.3
-
-# For microphone audio input (optional)
-pyaudio==0.2.11
-
-# For audio feature extraction
-python_speech_features==0.6
-
-# If your model used sklearn or similar tools in preprocessing
-scikit-learn==1.0.2
+import pyaudio
+import time
+import numpy as np
+import librosa
+from tensorflow.keras.models import load_model
+import os
+import numpy as np
+import librosa
+import librosa.display
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+import tensorflow as tf
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import (Conv2D, MaxPooling2D, Flatten, Dense, Dropout,
+                                     BatchNormalization)
+from tensorflow.keras.callbacks import EarlyStopping, ReduceLROnPlateau
+from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay, classification_report
